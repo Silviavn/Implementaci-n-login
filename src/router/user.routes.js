@@ -25,10 +25,10 @@ userRouter.post("/login", async (req, res) => {
         if(data.password === req.body.password)
         {   
             if(data.rol === 'admin'){
-                req.session.emailUsuario = email
-                req.session.nomUsuario = data.first_name
-                req.session.apeUsuario = data.last_name
-                req.session.rolUsuario = data.rol
+              // req.session.emailUsuario = email
+              //  req.session.nomUsuario = data.first_name
+              // req.session.apeUsuario = data.last_name
+              //  req.session.rolUsuario = data.rol
                 res.redirect("/profile")
             }
             else{
@@ -40,6 +40,7 @@ userRouter.post("/login", async (req, res) => {
         }
         else
         {
+          console.log("redirigiendo al login")
             res.redirect("../../login")
         }
 
@@ -59,5 +60,9 @@ userRouter.get("/logout", async (req, res) => {
         res.redirect('../../login')
     })    
 })
+
+userRouter.get("/login", async (req, res) => {
+    res.render("login")
+} )
 
 export default userRouter

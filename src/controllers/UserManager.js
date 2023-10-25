@@ -86,8 +86,10 @@ class UserManager extends usersModel
           const user = await UserManager.findOne({email: param});
            if(!user)
            {
+            console.log(":(")
              return "Lo lamentamos, usuario no encontrado" 
            }
+           console.log("user", user)
           return user;
         } 
         catch (error)
