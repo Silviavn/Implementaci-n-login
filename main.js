@@ -20,7 +20,6 @@ const app = express()
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
 app.set("views", path.resolve(__dirname + "/src/views"))
-
 app.use("/", express.static(__dirname + "/src/public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -33,8 +32,6 @@ app.listen(PORT, () => {
 app.use("/api/products", prodRouter)
 app.use("/api/carts", cartRouter)
 app.use("/api/sessions", userRouter)
-
-
 app.get("/products", async (req, res) => {
     if (!req.session.emailUsuario) 
     {
